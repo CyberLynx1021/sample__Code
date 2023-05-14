@@ -22,3 +22,4 @@ function contact(event) {
         );
     })
 }
+// console.log("hello")
