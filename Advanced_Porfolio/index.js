@@ -1,6 +1,29 @@
-// template_4dldrmk
-// nCrrK3pIcZVm9-J96
-// service_ogpxwce
+// let isModalOpen = false;
+let contrastToggle = false;
+const scaleFactor = 1 / 20;
+
+function moveBackground(event) {
+const shapes = document.querySelectorAll(".shape");
+const x = event.clientX / 20;
+const y = event.clientY / 20;
+
+for (let i = 0; i < shapes.length; ++i){
+    const isOdd = i % 2 !== 0;
+    const BoolInt = isOdd ? -1 : 1;
+    shapes[i].style.transform = `translate(${x * BoolInt}px, ${y * BoolInt}px)`
+}
+}
+
+function toggleContrast(){
+    contrastToggle = !contrastToggle;
+    if (contrastToggle){
+        document.body.classList += 'dark-theme'
+    }
+    else {
+        document.body.classList.remove('dark-theme')
+    }
+}
+
 function contact(event) {
     event.preventDefault();
     const loading = document.querySelector('.modal__overlay--loading');
@@ -22,4 +45,13 @@ function contact(event) {
         );
     })
 }
-// console.log("hello")
+
+let isModalOpen = false;
+ function toggleModal() {
+    if (isModalOpen) {
+        isModalOpen = false;
+        return document.body.classList.remove('modal--open')
+    }
+    isModalOpen = true;
+   document.body.classList += " modal--open"
+ }
